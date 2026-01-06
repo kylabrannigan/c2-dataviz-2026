@@ -18,9 +18,9 @@ Each lab problem set is worth 20 points. Please do not turn in partial work. Ins
 
 | Lab Problem Set|Date Assigned   |Date Due         |Topic                                                                                     |
 |---:|:---------------|:----------------|:-----------------------------------------------------------------------------------------|
-|   1|Wed, January 15  |Mon, January 27  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-ps1) |
-|   2|Wed, January 22 |Mon, Feb 3       |[Visual perception & reproducing plots](../lab-ps2)                                         |
-|   3|Wed, February 05|Mon, February 17 |[Uses of color to enhance interpretability](../lab-ps3)                                     |
+|   1|Wed, January 7  |Mon, January 19  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-ps1) |
+|   2|Wed, January 21 |Mon, Feb 9       |[Visual perception & reproducing plots](../lab-ps2)                                         |
+|   3|Wed, February 04|Mon, February 23 |[Uses of color to enhance interpretability](../lab-ps3)                                     |
 
 {{< /bootstrap-table >}}
 
@@ -32,9 +32,9 @@ The final project includes multiple components and is worth 70 points total (35%
 
 |Component    |Date Due         | Points | Overall Grade Percentage|
 |:------------|:----------------|:------:|------------------------:|
-|Proposal     |Mon, January 27  |   20   |                     10 %|
-|Presentation |Wed, March 12    |   20   |                     10 %|
-|Product      |Wed, March 19    |   30   |                     15 %|
+|Proposal     |Tue, January 26  |   20   |                     10 %|
+|Presentation |Wed, March 11    |   20   |                     10 %|
+|Product      |Wed, March 17    |   30   |                     15 %|
 
 {{< /bootstrap-table >}}
 
@@ -101,6 +101,7 @@ The final project must include
   + Website with [distill](https://rstudio.github.io/distill/),  
     [R Markdown](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), or
     [blogdown](https://bookdown.org/yihui/blogdown/)
+    [quarto](https://quarto.org/docs/websites/website-blog.html)
   + Technical document with [pagedown](https://github.com/rstudio/pagedown) or
     [bookdown](https://bookdown.org/yihui/bookdown/)
   + Scientific poster with [pagedown](https://github.com/rstudio/pagedown) or [posterdown](https://github.com/brentthorne/posterdown)
