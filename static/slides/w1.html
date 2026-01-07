@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Welcome!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Maithreyi Gopalan" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="new.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Welcome!
+]
+.subtitle[
+## An overview of the course
+]
+.author[
+### Maithreyi Gopalan
+]
+.date[
+### Week 1
+]
+
+---
+
+
+
+
+layout: true
+
+  &lt;script&gt;
+    feather.replace()
+  &lt;/script&gt;
+  
+  &lt;div class="slides-footer"&gt;
+  &lt;span&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://github.com/maithgopalan/c2-dataviz-2026/raw/main/static/slides/w1.pdf"&gt;
+    &lt;i class = "footer-icon" data-feather="download"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://dataviz-win2026.netlify.app/slides/w1.html"&gt;
+    &lt;i class = "footer-icon" data-feather="link"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;a class = "footer-icon-link" href = "https://github.com/maithgopalan/c2-dataviz-2026"&gt;
+    &lt;i class = "footer-icon" data-feather="github"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  
+  &lt;/span&gt;
+  &lt;/div&gt;
+  
+
+---
+# Agenda 
+
+.pull-left[
+
+* Getting on the same page
+* Syllabus
+* Accessing and working with the course data
+* If time allows - Intro to text data
+]
+
+.pull-right[
+![](img/edld652-logo.png)
+]
+
+---
+
+# whoami
+
+.pull-left[
+* Associate Professor
+* Pronouns: she/her/hers
+* Primary areas of interest: educational equity, policy analysis, social psychology,systemic inequities in opportunities and achievement, and variance between educational institutions
+* Big secret: I am not a 💗💗R💗💗; have been a SAS and STATA user, so learning R with y'all! 
+]
+
+.pull-right[
+
+![](img/gopalan.jpg)
+&lt;/div&gt;
+]
+
+---
+class: center middle inverse-blue
+
+# whoisyou?
+
+.left[
+* Introduce yourself
+* Why are you here?
+* What pronouns would you like us to use for you for this class?
+* What was one thing you did not related to academic work over winter break?
+]
+
+---
+
+# A few class policies
+
+--
+* Be kind
+
+
+--
+* Be understanding and have patience, with others **and yourself**
+
+
+--
+* Help others whenever possible
+
+
+--
+Truly the most important part of this class. Important not just in terms of decency, but also in your learning, and most importantly, for equity. 
+
+---
+# A more specific policy
+### Kiddos in class
+
+--
+
+* All breastfeeding babies are welcome in class as often as necessary.
+
+--
+
+* Non-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent of two young children, I understand that babysitters fall through, partners have conflicting schedules, children get sick, and other issues arise that leave parents with few other options.
+
+---
+
+* In cases where children come to class, I invite parents/caregivers to sit close to the door so as to more easily excuse yourself to attend to your child's needs. Non-parents in the class: please reserve seats near the door for your parenting classmates.
+
+--
+
+* All students are expected to join with me in creating a welcoming environment that is respectful of your classmates who bring children to class.
+
+---
+class: inverse-red middle center
+# In-person class
+
+---
+# In-person class
+* This class is in-person
+
+* Your class participation grade comes exclusively from your active participation in the class through discussions and hands-on lab sessions
+
+* If you are not feeling well, please do not attend in person
+
+* See syllabus for attendance policy
+
+---
+# Last intro thing
+
+* I'm here for you
+
+* We won't have specific office hours, but know I'm always willing to meet
+
+* This course, like all in the sequence, can be difficult. Don't suffer in silence. Don't do this alone.
+
+---
+class: inverse-green middle
+background-size:cover
+
+# Syllabus
+
+---
+
+# Course Website(s)
+
+.pull-left[
+## [website](https://dataviz-win2026.netlify.app)
+]
+
+.pull-right[
+.right[
+## [repo](https://github.com/maithgopalan/c2-dataviz-2026)
+  ]
+]
+
+
+&lt;iframe src="https://dataviz-win2026.netlify.app" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+---
+# Materials
+* Nearly everything will be distributed through the repo and through the website.
+
+* Please clone the repo now, if you haven't already. Pull each week for the most recent changes.
+
+* We'll use Canvas for grading, and that is essentially it.
+
+---
+# R Markdown notes
+* These slides were produced with [**{xaringan}**](https://github.com/yihui/xaringan), an R Markdown variant. I encourage you to try it out and use it for your final project presentation.
+
+* The website was also produced with R Markdown (sort of)
+  + It's a [**{blogdown}**](https://github.com/rstudio/blogdown) website with some custom CSS and Hugo shortcodes
+  
+* This course is not just about data viz, but also mediums for communication. This includes websites and [data dashboards](https://jenthompson.me/examples/insight_progress.html) among other possibilities.
+
+
+---
+class: inverse-red middle
+
+# My assumptions about you
+
+---
+# I assume you
+
+* Understand the R package ecosystem (how to find, install, load, and learn about them)
+
+
+--
+* Can read "flat" (i.e., rectangular) datasets into R 
+
+  + I don't care what you use, but you should be using RStudio Projects &amp; the [{here}](https://github.com/r-lib/here) package
+
+    - See [Jenny Bryan's blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) for why.
+
+
+
+---
+* Can perform basic data wrangling and transformations in R, using the
+tidyverse  
+
+  + Leverage appropriate functions for introductory data science tasks (pipeline)
+  + "clean up" the dataset using scripts and reproducible workflows
+
+--
+* Use R Markdown to create reproducible dynamic reports
+
+--
+* Use version control with R via git and GitHub  
+
+--
+* Indeed, all of today's lab is going to be about that! 
+
+
+---
+# Learning objectives
+
+* Transform data in a variety of ways to create effective data visualizations
+
+
+--
+* Understand best practices in data visualization
+
+
+--
+
+* Create and customize graphics in a variety of ways using best practices (e.g., visual perception, color choices, text annotations, categorical axis ordering, uncertainty)
+
+
+--
+
+* Build web-based platforms for sharing data visualizations
+
+
+---
+
+# Examples
+Below are some links to final projects from students who have taken this class previously.
+
+.pull-left[
+### Dashboards
+* [Songyi Ahn](https://songyiahn.github.io/sesweight/)
+* [Sophia Angleton](https://sophiavangleton.github.io/FInal-Blog/)
+* [Maiko Hata](https://maihata.github.io/finalproj/)
+]
+
+
+.pull-right[
+### Blog post
+* [Teresa Chen](https://teresashchen.github.io/blog/)
+* [Ouafaa Hmaddi](https://ohmaddi.github.io/Portfolio-Kiva/)
+* [Murat Kezer](https://mkezer.github.io/Moral-values-across-countries/#predicted-values-of-moral-values-by-gender-equality)
+]
+
+---
+# Weekly learning objectives
+
+Provide you a frame for what you should be working to learn for that specific week.
+
+--
+
+### This week's objectives
+* Understand the requirements of the course
+* Understand the requirements of the final project
+* Be ready to go with *git* and GitHub
+
+
+---
+
+# Required Textbooks (free)
+
+.pull-left[
+## [Healy](http://socviz.co)
+
+&lt;div&gt;
+&lt;img src = http://socviz.co/assets/dv-cover-pupress.jpg height = 400&gt;
+&lt;/div&gt;
+
+]
+
+.pull-right[
+.right[
+## [Wilke](https://serialmentor.com/dataviz/)
+]
+
+&lt;div&gt;
+&lt;img src =
+https://clauswilke.com/dataviz/cover.png height = 400&gt; &lt;/div&gt;
+
+
+]
+
+
+---
+
+# Other books (also free)
+
+.pull-left[
+![](https://happygitwithr.com/img/watch-me-diff-watch-me-rebase-smaller.png)
+## [Bryan](http://happygitwithr.com)
+]
+
+.pull-right[
+.right[
+&lt;div&gt;
+&lt;img src =https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png height = 400&gt; 
+&lt;/div&gt;
+  ]
+]
+
+.right[
+### [Wickham &amp; Grolemund](https://r4ds.had.co.nz)
+]
+---
+class: inverse-orange middle
+# Extra credit opportunity
+**5 points**: Deep dive into a topic not covered by the course
+
+
+---
+# Some options
+
+* Geographic data (we will discuss this, but it's relatively late and there's a ton we won't be able to get to)
+* Network data
+* DAGs
+* Flow data (e.g., alluvial diagrams)
+* Interactive plots
+* Animated plots
+
+---
+class: inverse-blue  middle
+# Some examples
+
+---
+background-image:url(https://timogrossenbacher.ch/wp-content/uploads/2016/12/tm-final-map-1.png)
+background-size:contain
+
+&lt;br/&gt;
+
+
+[Timo Grossenbacher](https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/)
+
+---
+class: inverse
+background-image:url(https://user-images.githubusercontent.com/25231784/41408567-08313b66-6fcb-11e8-8c55-75baa36364cd.png)
+background-size:contain
+
+&lt;br/&gt;
+&lt;br/&gt;
+
+[Paul Campbell](https://gist.github.com/PaulC91/e767ca4f0c4335e6e0d2f71eb7cc98cc)
+
+---
+class: bottom
+background-image:url(https://static01.nyt.com/images/2018/05/02/learning/economic-mobilityLN/economic-mobilityLN-superJumbo.png?quality=90&amp;auto=webp)
+background-size:contain
+
+&lt;br/&gt;
+&lt;br/&gt;
+
+[Patrick Honner](https://www.nytimes.com/2018/05/03/learning/lesson-plans/moving-on-up-teaching-with-the-data-of-economic-mobility.html) via NYT
+
+---
+class: bottom
+background-image:url(https://cloud.githubusercontent.com/assets/7896861/17839509/d66b3c2a-67b7-11e6-9ee4-5f8ad54746d7.gif)
+background-size:contain
+
+&lt;br/&gt;
+&lt;br/&gt;
+
+[James Curley](https://github.com/jalapic/nba)
+
+---
+# Labs
+
+See the [assignments](https://dataviz-win2026.netlify.app/assignments/) page of the website.
+
+
+---
+# Data viz "in the wild" presentations
+Everyone will be randomly assigned a date to share two data visualizations you have found in publications, websites, or anywhere else IRL.
+
+* Not a formal presentation
+
+* Share the links with me before class - we'll look at it as a group and discuss
+
+* You note where you found it and what you like/dislike about it
+
+---
+
+# Presentation order
+
+.footnote[I will email this out as well. ]
+
+
+
+.pull-left[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Date &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Presenter &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-01-14 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kat &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-01-14 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ziyuan &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-01-14 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; James &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-01-21 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Nishat &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-01-21 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Steven &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-01-28 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Febe &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-01-28 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cheyna &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Chen &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tongle &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-11 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Everett &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-11 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Dodjivi &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Date &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Presenter &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-18 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; America &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-18 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Rachel &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Erika &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-02-25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ramtin &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-03-04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kyla &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2026-03-04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Isha &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+class: inverse-red middle
+# Final Project 
+70 points total (35%)
+
+---
+# Group project
+
+* Please try to finalize your group by the end of today. You will have time when exploring the course data to work together.
+
+* No fewer than 2, no more than 3.
+
+* Although the final is the only mandated group project, I encourage you to work with your group for all labs and the lab assignments as well.
+
+---
+# Three parts
+* Proposal (20 points)
+
+* Presentation (20 points)
+
+* Product (30 points)
+
+
+---
+# Product
+
+### Four components: 
+
+* A web-deployed portfolio showcasing your [#dataviz](https://twitter.com/search?q=%23DataViz&amp;src=tyah)
+  skills.
+  + [distill](https://rstudio.github.io/distill/) (what I'll lecture on), 
+    [R Markdown](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), or
+    [blogdown](https://bookdown.org/yihui/blogdown/) website, or 
+    [Quarto](https://quarto.org/docs/websites/website-blog.html)
+  + Technical document with [pagedown](https://github.com/rstudio/pagedown) or
+    [bookdown](https://bookdown.org/yihui/bookdown/)
+  + Scientific poster with [pagedown](https://github.com/rstudio/pagedown)
+  + [flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/)
+
+---
+
+* At least four finalized data displays, with each accompanied by a strong 
+  narrative/story, as well as the history of how the visualization changed over 
+  time.
+  
+* Housed on GitHub
+  + Fully reproducible
+
+* Deployed through [GitHub pages](https://pages.github.com) (or netlify or similar)
+
+
+---
+# Proposal
+
+### Four components:
+
+* Show me some evidence that you've at least played around with some data and that you have some ideas of what you want to do
+
+* *Very* preliminary visualizations, and/or hand-sketches of visuals you'd like to make, noting the data sources/columns to be used
+
+* Identification of the intended audience for each viz 
+
+* The intended message to be communicated for each viz 
+
+
+--
+## Main point - feedback!
+
+---
+# Draft
+
+* Expected to still be a work in progress
+  + Data visualizations should be largely complete
+
+* Deployment not expected
+
+* Can be provided to your peers so they can learn from you as much as you can learn from their feedback
+
+---
+# Peer Review
+* We are all professionals here. It is imperative we act like it. 
+
+* Understand the purpose of the exercise.  
+
+* Zero tolerance policy for inappropriate comments
+
+* Should be vigorously encouraging 
+
+--
+
+### Utilizing GitHub
+
+* Fork their repo, embed comments &amp; suggest changes to their code, submit a PR
+
+---
+# Presentation 
+Order randomly assigned. Basically a chance to share what you created!
+
+* Presentation length will be determined later, but likely to be in the 10-15 minute range (note - you will present as a group)
+
+* Share the final products
+
+* Share the prior iterations
+
+* Discuss the progression along the way and why specific changes were made
+
+* What challenges did you face along the way? What victories did you have that you are particularly proud of?
+
+
+---
+# Grading
+
+|  **Lower percent** |**Lower point range**  | **Grade** | **Upper point range**  | **Upper percent**|
+|  :-------: | :-----------------| :-:| :---------------: | -----:|
+|  0.970+    | (146 pts or more) | A+ |                   |       |
+|  0.930     | (140 pts)         | A  | (145 pts)         | 0.969 |
+|  0.900     | (135 pts)         | A- | (139 pts)         | 0.929 |
+|  0.870     | (131 pts)         | B+ | (134 pts)         | 0.899 |
+|  0.830     | (125 pts)         | B  | (130 pts)         | 0.869 |
+|  0.800     | (120 pts)         | B- | (124 pts)         | 0.829 |
+|  0.770     | (116 pts)         | C+ | (119 pts)         | 0.799 |
+|  0.730     | (110 pts)         | C  | (115 pts)         | 0.769 |
+|  0.700     | (105 pts)         | C- | (109 pts)         | 0.739 |
+|            |                   | F  | (104 pts or less) | 0.699 |
+
+---
+class: inverse
+background-image:url(https://d194ip2226q57d.cloudfront.net/original_images/10_Tips_for_Workplace_Communication)
+background-size:contain
+
+
+---
+class: inverse-orange middle
+# Questions?
+
+
+---
+# Let's jump into a quick Github Workflow refresher
+
+---
+class: inverse-green middle
+# Next time
+
+* Quick refresher of R Markdown/R and visualizations of continuous variables
+* If time permits, we will also discuss text data, string manipulations, distributions/binning
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"navigation": {
+"scroll": false
+},
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
