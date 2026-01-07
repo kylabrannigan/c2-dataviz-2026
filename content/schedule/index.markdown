@@ -27,7 +27,7 @@ Each of the below links to the full book, except the last one. I will upload cha
 {{< /wrap >}}
   {{< wrap >}}
 {{< readings "other" "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git" "" >}}
-{{< readings "happygit" "https://happygitwithr.com/git-branches.html" "" >}}
+{{< readings "happygit" "https://happygitwithr.com" "" >}}
 {{< /wrap >}}
   {{< wrap >}}
 {{< lecture "" >}}
