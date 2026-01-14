@@ -1,0 +1,779 @@
+---
+title: "Introduction to GitHub Workflows: Lesson Plan"
+author: "Prof. Maithreyi Gopalan"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: cosmo
+    highlight: tango
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    latex_engine: xelatex
+---
+
+<!--
+RENDERING INSTRUCTIONS:
+
+For HTML version:
+  rmarkdown::render("github_workflow_lesson.Rmd", output_format = "html_document")
+
+For PDF version:
+  rmarkdown::render("github_workflow_lesson.Rmd", output_format = "pdf_document")
+
+Or in RStudio:
+  - Click "Knit" dropdown menu
+  - Select "Knit to html_document" or "Knit to pdf_document"
+  - Or just click "Knit" for default (HTML)
+-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+# Learning Objectives
+
+By the end of this lesson, students will be able to:
+
+1. Explain the purpose of version control and the difference between Git and GitHub
+2. Create a new repository on GitHub
+3. Clone a repository to their local computer
+4. Make changes, stage, commit, and push to GitHub
+5. Fork a repository and create a pull request
+6. Follow best practices for collaborative version control
+
+**Time Required**: Approximately 90 minutes (60 min instruction + 30 min hands-on practice)
+
+---
+
+# Part 1: Introduction to Version Control (10 minutes)
+
+## Why Version Control?
+
+Version control systems solve common problems in research and development:
+
+- **Multiple versions problem**: Eliminate `thesis_final.docx`, `thesis_final_v2.docx`, `thesis_final_ACTUAL.docx`
+- **Change tracking**: Know exactly what changed, when, and why
+- **Collaboration**: Multiple people can work on the same project simultaneously
+- **Experimentation**: Try new approaches without fear of breaking working code
+- **History**: Complete record of project evolution with ability to revert
+
+## Git vs. GitHub
+
+**Git** is the version control system:
+- Distributed version control software
+- Runs locally on your computer
+- Tracks changes to files over time
+- Created by Linus Torvalds in 2005
+
+**GitHub** is the hosting platform:
+- Web-based hosting service for Git repositories
+- Facilitates collaboration and code sharing
+- Provides additional features (issues, pull requests, wikis)
+- Not the only option (GitLab, Bitbucket exist too)
+
+## Key Concepts
+
+- **Repository (Repo)**: A project folder containing files and complete history
+- **Commit**: A snapshot of your project at a specific point in time
+- **Branch**: A parallel version of your repository (we'll focus on `main`)
+- **Fork**: Your personal copy of someone else's repository
+- **Clone**: Downloading a repository to your local computer
+- **Push**: Uploading local commits to GitHub
+- **Pull**: Downloading updates from GitHub to local computer
+- **Remote**: The version of repository hosted on GitHub
+- **Local**: The version on your computer
+
+---
+
+# Part 2: Creating Your First Repository (15 minutes)
+
+## Step-by-Step: Create Repository on GitHub
+
+1. Navigate to [github.com](https://github.com) and sign in
+
+2. Click the **"+"** icon in the upper right corner
+
+3. Select **"New repository"**
+
+4. Configure repository settings:
+   - **Repository name**: `my-first-repo` (use lowercase, hyphens for spaces)
+   - **Description**: Brief explanation of the project (optional but recommended)
+   - **Visibility**: Choose Public or Private
+   - **Initialize this repository with**:
+     - ☑️ Add a README file (check this!)
+   
+5. Click **"Create repository"**
+
+## What You Just Created
+
+Your new repository has:
+- A unique URL: `https://github.com/username/my-first-repo`
+- A `README.md` file (Markdown format)
+- A default branch called `main`
+- An automatically generated commit (the initial commit)
+
+## Editing README on GitHub
+
+The README file is the front page of your repository. Let's edit it:
+
+1. Click on `README.md` in your repository file list
+
+2. Click the **pencil icon** (✏️) to edit
+
+3. Add content using Markdown:
+
+```markdown
+# My First Repository
+
+This is my first GitHub repository where I'm learning version control.
+
+## About Me
+I'm a student learning educational data science and research methods.
+
+## What I'm Learning
+- Version control with Git
+- Collaboration workflows
+- Research reproducibility
+```
+
+4. Scroll to **"Commit changes"** section at bottom
+
+5. Add a descriptive commit message: "Update README with introduction"
+
+6. Optional: Add extended description in larger text box
+
+7. Click **"Commit changes"**
+
+## Understanding Commits
+
+Each commit has:
+- **Unique identifier (hash)**: e.g., `a1b2c3d4`
+- **Author**: Who made the changes
+- **Timestamp**: When changes were made
+- **Commit message**: Why changes were made
+- **Changes**: Exactly what was modified
+
+---
+
+# Part 3: Cloning to Your Local Computer (15 minutes)
+
+## Prerequisites
+
+Ensure students have:
+- Git installed on their computer
+- Terminal/Command Prompt access
+- GitHub account credentials configured
+
+## Cloning Your Repository
+
+**Cloning** creates a local copy of a remote repository.
+
+### Step-by-Step Process:
+
+1. On your GitHub repository page, click the green **"Code"** button
+
+2. Select **HTTPS** tab
+
+3. Copy the URL (looks like: `https://github.com/username/my-first-repo.git`)
+
+4. Open Terminal (Mac/Linux) or Command Prompt/Git Bash (Windows)
+
+5. Navigate to desired location:
+```bash
+cd ~/Documents  # or your preferred location
+```
+
+6. Clone the repository:
+```bash
+git clone https://github.com/username/my-first-repo.git
+```
+
+7. Navigate into the repository:
+```bash
+cd my-first-repo
+```
+
+## What Cloning Provides
+
+After cloning, you have:
+- Complete copy of all files
+- Entire commit history
+- Connection to remote repository (called `origin`)
+- Ability to work offline
+- All branches (if multiple exist)
+
+## Verifying Your Clone
+
+Check repository status:
+```bash
+git status
+```
+
+Expected output:
+```
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+View remote connections:
+```bash
+git remote -v
+```
+
+Expected output:
+```
+origin  https://github.com/username/my-first-repo.git (fetch)
+origin  https://github.com/username/my-first-repo.git (push)
+```
+
+---
+
+# Part 4: The Git Workflow (20 minutes)
+
+## The Three States
+
+```
+Working Directory → Staging Area → Repository
+     (modify)         (stage)       (commit)
+```
+
+1. **Working Directory**: Where you edit files
+2. **Staging Area (Index)**: Where you prepare commits
+3. **Repository**: Where committed snapshots are stored
+
+## Creating and Tracking a New File
+
+### Create a learning log:
+
+```bash
+# Option 1: Create empty file
+touch learning-log.md
+
+# Option 2: Create and edit in one step
+nano learning-log.md   # or code, vim, etc.
+```
+
+### Add content to `learning-log.md`:
+
+```markdown
+# Learning Log
+
+## January 6, 2026
+
+Today I learned:
+- How to create a GitHub repository
+- How to clone a repository to my computer
+- The difference between Git and GitHub
+- The importance of commit messages
+
+## Questions
+- How do branches work?
+- When should I create a new repository vs. a new branch?
+```
+
+Save and close the file.
+
+## The Add-Commit-Push Cycle
+
+### 1. Check Status
+```bash
+git status
+```
+
+Output shows untracked file:
+```
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        learning-log.md
+```
+
+### 2. Stage Changes
+```bash
+git add learning-log.md
+
+# Alternative: stage all changes
+git add .
+```
+
+Verify staging:
+```bash
+git status
+```
+
+Output now shows:
+```
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   learning-log.md
+```
+
+### 3. Commit Changes
+```bash
+git commit -m "Add initial learning log entry"
+```
+
+Successful commit output:
+```
+[main 1a2b3c4] Add initial learning log entry
+ 1 file changed, 8 insertions(+)
+ create mode 100644 learning-log.md
+```
+
+### 4. Push to GitHub
+```bash
+git push origin main
+```
+
+Successful push output:
+```
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Writing objects: 100% (3/3), 345 bytes
+To https://github.com/username/my-first-repo.git
+   a1b2c3d..e4f5g6h  main -> main
+```
+
+## Writing Effective Commit Messages
+
+### Best Practices:
+
+✅ **Good commit messages:**
+- "Add data cleaning script for CRDC dataset"
+- "Fix missing value handling in suspension analysis"
+- "Update README with installation instructions"
+- "Remove deprecated visualization functions"
+
+❌ **Poor commit messages:**
+- "stuff"
+- "changes"
+- "update"
+- "asdf"
+- "fix"
+
+### Commit Message Structure:
+
+```
+Short summary (50 characters or less)
+
+More detailed explanation if needed (wrap at 72 characters).
+Explain the problem this commit solves and why you made 
+the change, not how you made it.
+
+- Bullet points are okay
+- Use imperative mood: "Add feature" not "Added feature"
+```
+
+## Practice Exercise
+
+Have students:
+1. Create a new entry in their learning log
+2. Stage the changes
+3. Commit with a descriptive message
+4. Push to GitHub
+5. Verify changes appear on GitHub
+
+---
+
+# Part 5: Forking and Collaboration (20 minutes)
+
+## Understanding Forks
+
+**Forking** creates your own copy of someone else's repository on GitHub.
+
+### Fork vs. Clone:
+
+| Action | Location | Purpose |
+|--------|----------|---------|
+| Fork | GitHub → GitHub | Create your copy on GitHub |
+| Clone | GitHub → Local | Download to your computer |
+
+### When to Fork:
+
+- Contributing to open source projects
+- Building on someone else's work
+- Creating personal version of a project
+- Collaborating with classmates
+- Experimenting without affecting original
+
+## Forking Workflow
+
+### 1. Fork a Repository
+
+1. Navigate to the repository you want to fork
+2. Click **"Fork"** button (top right)
+3. Select destination (your account)
+4. GitHub creates: `yourusername/repository-name`
+
+### 2. Clone Your Fork
+
+```bash
+# Clone YOUR fork, not the original
+git clone https://github.com/yourusername/repository-name.git
+cd repository-name
+```
+
+### 3. Make Changes
+
+Work as normal:
+```bash
+# Create new file
+nano peer-review.md
+
+# Stage changes
+git add peer-review.md
+
+# Commit
+git commit -m "Add peer review feedback"
+
+# Push to YOUR fork
+git push origin main
+```
+
+### 4. Create Pull Request
+
+1. Go to your fork on GitHub
+2. Click **"Contribute"** → **"Open pull request"**
+3. Review changes
+4. Add title: "Add peer review feedback"
+5. Add description:
+   ```
+   I've added a peer review file with feedback on your repository
+   organization and documentation. Great work overall!
+   ```
+6. Click **"Create pull request"**
+
+## Pull Request Best Practices
+
+When creating a pull request:
+- **Be descriptive**: Explain what and why
+- **Reference issues**: If fixing a bug, mention issue number
+- **Keep it focused**: One feature/fix per PR
+- **Test your code**: Ensure it works before submitting
+- **Be respectful**: Remember there's a human reviewing
+
+When reviewing a pull request:
+- **Be constructive**: Suggest improvements positively
+- **Ask questions**: Seek clarification when needed
+- **Test changes**: Pull the branch and verify functionality
+- **Acknowledge effort**: Thank contributors
+
+---
+
+# Part 6: Best Practices and Tips (10 minutes)
+
+## Git Best Practices
+
+### 1. Commit Frequently
+- Small, focused commits are better than large ones
+- Each commit should represent one logical change
+- Makes it easier to find and revert bugs
+
+### 2. Write Clear Commit Messages
+- First line: concise summary (50 chars)
+- Blank line
+- Detailed explanation if needed
+
+### 3. Sync Before Pushing
+```bash
+# Always pull before pushing
+git pull origin main
+git push origin main
+```
+
+### 4. Use .gitignore
+Never commit:
+- Sensitive data (passwords, API keys)
+- Large data files
+- Temporary files
+- System files
+
+Example `.gitignore`:
+```
+# R specific
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Data files (if large)
+*.csv
+data/
+raw_data/
+
+# Output files
+*.pdf
+*.html
+output/
+
+# System files
+.DS_Store
+Thumbs.db
+*~
+
+# Temporary files
+*.tmp
+.ipynb_checkpoints/
+```
+
+### 5. Protect Your Main Branch
+- Don't commit directly to main for large projects
+- Use branches for development
+- Merge via pull requests
+
+## Common Markdown Syntax
+
+GitHub README files use Markdown:
+
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+
+**bold text**
+*italic text*
+***bold and italic***
+
+- Unordered list item
+- Another item
+
+1. Numbered list item
+2. Another numbered item
+
+[Link text](http://example.com)
+
+![Image alt text](image-url.jpg)
+
+`inline code`
+
+```
+code block
+with multiple lines
+```
+
+> Blockquote text
+```
+
+## Troubleshooting Common Issues
+
+### "Permission denied" when pushing
+```bash
+# Ensure you're authenticated
+git remote -v  # Check remote URL
+git config user.name "Your Name"
+git config user.email "your.email@example.com"
+```
+
+### Accidentally committed sensitive data
+```bash
+# Remove file and commit
+git rm --cached sensitive_file.txt
+echo "sensitive_file.txt" >> .gitignore
+git commit -m "Remove sensitive file"
+git push origin main
+```
+
+### Want to undo uncommitted changes
+```bash
+# Discard changes to specific file
+git restore filename
+
+# Discard all uncommitted changes (CAREFUL!)
+git restore .
+```
+
+### Made a mistake in last commit message
+```bash
+# Amend the most recent commit message
+git commit --amend -m "Corrected commit message"
+
+# If already pushed (CAREFUL! Rewrites history)
+git push --force origin main
+```
+
+### Merge conflicts
+```bash
+# When pulling creates conflicts
+git pull origin main
+# Fix conflicts in files marked with <<<<<<< and >>>>>>>
+git add conflicted_file.txt
+git commit -m "Resolve merge conflict"
+git push origin main
+```
+
+---
+
+# Part 7: Hands-On Exercise (30 minutes)
+
+## Exercise Instructions
+
+Complete the following five exercises:
+
+### Exercise 1: Create Repository (5 min)
+Create a repository called `my-first-repo` with:
+- Public visibility
+- README file
+- Description of your learning goals
+
+### Exercise 2: Clone Repository (5 min)
+Clone your repository to your local computer and verify the clone.
+
+### Exercise 3: Make Changes and Commit (10 min)
+1. Create `learning-log.md`
+2. Add today's date and 3 things you learned
+3. Stage, commit with message: "Add initial learning log entry"
+4. Push to GitHub
+5. Verify file appears on GitHub
+
+### Exercise 4: Fork and Clone (5 min)
+1. Fork a classmate's `my-first-repo`
+2. Clone your forked copy to a different location
+3. Verify you have both repositories locally
+
+### Exercise 5: Contribute via Pull Request (5 min)
+1. In forked repository, create `peer-review.md`
+2. Write 2-3 sentences of positive feedback
+3. Commit and push to your fork
+4. Create pull request to original repository
+
+## Submission Requirements
+
+Submit a document containing:
+1. URL to your original repository
+2. Screenshot of your commit history (showing at least 2 commits)
+3. URL to your fork of classmate's repository
+4. Screenshot of your pull request
+
+---
+
+# Additional Resources
+
+## Documentation
+
+- [GitHub Docs](https://docs.github.com): Official documentation
+- [Git Documentation](https://git-scm.com/doc): Complete Git reference
+- [Pro Git Book](https://git-scm.com/book/en/v2): Free comprehensive guide
+
+## Learning Resources
+
+- [GitHub Learning Lab](https://lab.github.com): Interactive tutorials
+- [Git Immersion](http://gitimmersion.com): Step-by-step Git guide
+- [Learn Git Branching](https://learngitbranching.js.org): Visual interactive tutorial
+
+## Quick References
+
+- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf): Quick command reference
+- [Markdown Guide](https://www.markdownguide.org): Markdown syntax help
+- [.gitignore templates](https://github.com/github/gitignore): Common .gitignore files
+
+## Terminal Commands Reference
+
+### Navigation
+```bash
+pwd                    # Print working directory
+ls                     # List files
+ls -la                 # List all files including hidden
+cd folder_name         # Change directory
+cd ..                  # Go up one directory
+cd ~                   # Go to home directory
+```
+
+### File Operations
+```bash
+touch filename         # Create new empty file
+mkdir folder_name      # Create new directory
+rm filename           # Delete file
+rm -r folder_name     # Delete directory
+cat filename          # View file contents
+head filename         # View first 10 lines
+tail filename         # View last 10 lines
+```
+
+### Git Commands
+```bash
+git init              # Initialize new repository
+git status            # Check status
+git add filename      # Stage specific file
+git add .             # Stage all changes
+git commit -m "msg"   # Commit with message
+git push              # Push to remote
+git pull              # Pull from remote
+git clone url         # Clone repository
+git log               # View commit history
+git log --oneline     # View concise history
+git diff              # View changes
+git remote -v         # View remotes
+```
+
+---
+
+# Assessment and Follow-Up
+
+## Formative Assessment
+
+During class, check for understanding:
+- Can students explain difference between Git and GitHub?
+- Can they navigate their terminal to correct directory?
+- Are they writing descriptive commit messages?
+- Do they understand staging vs. committing?
+
+## Common Student Mistakes
+
+1. **Forgetting to commit before pushing**: Remind students of the full workflow
+2. **Unclear commit messages**: Emphasize importance of documentation
+3. **Working in wrong directory**: Show how to check location with `pwd`
+4. **Confusion between fork and clone**: Use analogies and diagrams
+5. **Fear of breaking things**: Emphasize that Git makes it hard to permanently lose work
+
+## Next Steps
+
+In future lessons, cover:
+- Branching and merging
+- Resolving merge conflicts
+- Collaborative workflows (feature branch workflow)
+- GitHub Issues and project management
+- Git with R/RStudio integration
+- Advanced Git operations (rebase, cherry-pick, stash)
+
+---
+
+# Notes for Instructor
+
+## Pre-Class Setup
+- Verify all students have GitHub accounts
+- Ensure Git is installed on lab computers
+- Test internet connectivity
+- Prepare backup examples in case student repos aren't ready
+- Have students install a text editor (VS Code, Atom, Sublime)
+
+## Pacing Tips
+- Part 1 (Intro): Don't rush; ensure everyone understands concepts
+- Part 2 (Creating Repo): Live demo as students follow along
+- Part 3 (Cloning): Anticipate terminal navigation issues
+- Part 4 (Workflow): Most important section; take time here
+- Part 5 (Forking): Pair students to practice collaboration
+- Part 6 (Best Practices): Can be asynchronous reading if time is short
+
+## Troubleshooting Prep
+- Have a backup plan if GitHub is down
+- Know how to handle authentication issues
+- Be ready to explain Windows/Mac/Linux differences
+- Have solution for students who didn't bring laptops
+
+## Active Learning Strategies
+- Think-pair-share for conceptual questions
+- Live coding with students following
+- Peer review of commit messages
+- Partner exercises for forking workflow

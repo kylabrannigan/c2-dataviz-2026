@@ -18,7 +18,7 @@ Each lab problem set is worth 20 points. Please do not turn in partial work. Ins
 
 | Lab Problem Set|Date Assigned   |Date Due         |Topic                                                                                     |
 |---:|:---------------|:----------------|:-----------------------------------------------------------------------------------------|
-|   1|Wed, January 7  |Mon, January 19  |[Collaborative git/GitHub, basic plots, and working with strings and text data](../lab-ps1) |
+|   1|Wed, January 14  |Fri, January 23 |[R markdowns, download data, set api keys, basic plots, and working with strings/text data](../lab-ps1) |
 |   2|Wed, January 21 |Mon, Feb 9       |[Visual perception & reproducing plots](../lab-ps2)                                         |
 |   3|Wed, February 04|Mon, February 23 |[Uses of color to enhance interpretability](../lab-ps3)                                     |
 
@@ -100,7 +100,7 @@ The final project must include
   skills using one of the following:
   + Website with [distill](https://rstudio.github.io/distill/),  
     [R Markdown](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), or
-    [blogdown](https://bookdown.org/yihui/blogdown/)
+    [blogdown](https://bookdown.org/yihui/blogdown/), or
     [quarto](https://quarto.org/docs/websites/website-blog.html)
   + Technical document with [pagedown](https://github.com/rstudio/pagedown) or
     [bookdown](https://bookdown.org/yihui/bookdown/)
